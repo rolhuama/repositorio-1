@@ -1,0 +1,43 @@
+.circle-active {
+    padding-top: 4px;
+    width: 35px;
+    height: 35px;
+    color: #fff;
+    background: #0d6efd;
+    border: 1px solid #0d6efd;
+    border-radius: 25px;
+    font-size: 18px;
+  }
+
+  .circle-completed{
+    padding-top: 4px;
+    width: 35px;
+    height: 35px;
+  color: #fff;
+    background: #0d6efd;
+    border: 1px solid #0d6efd;
+    border-radius: 25px;
+    font-size: 18px;
+  }
+  
+  .circle-disabled {
+    padding-top: 4px;
+    width: 35px;
+    height: 35px;
+    background: #fff;
+    border: 1px solid #0d6efd;
+    border-radius: 25px;
+    font-size: 18px;
+  }
+  
+  .steps-circle {
+    display: flex;
+    align-items: center;
+  }
+
+  .line {
+    height: 2px;
+    flex: 1;
+    background: #0d6efd;
+    margin: 0 1px;
+  }

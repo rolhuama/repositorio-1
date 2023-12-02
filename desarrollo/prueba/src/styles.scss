@@ -1,0 +1,26 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import 'assets/css/style.min.css';
+@import '~bootstrap-icons/font/bootstrap-icons.min.css';
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+
+$primary-background-color: #0d6efd;
+$primary-text-color: #fff;
+
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value {
+    background-color: $primary-background-color;
+    color: $primary-text-color;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected, .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected.ng-option-marked{
+    background-color: $primary-background-color;
+    color: $primary-text-color;
+}
+
+.fixed-width-column {
+    width: 40px;
+}
+
+.nowrap-col {
+    white-space: nowrap;
+}

@@ -1,0 +1,39 @@
+<h5 class="card-title">Descripción personal</h5>
+<p class="small fst-italic" ></p>
+
+<h5 class="card-title">Detalles</h5>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label ">Nombre Completo</div>
+    <div class="col-lg-9 col-md-8" [innerText]="Info.firstName1 || ''" ></div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">Cummpleaños</div>
+    <div class="col-lg-9 col-md-8" >{{Info.birthday}}</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">Puesto</div>
+    <div class="col-lg-9 col-md-8">{{Info.user.position}}</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">Nacionalidad</div>
+    <div class="col-lg-9 col-md-8" >{{Info.nationality}}</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">Dirección</div>
+    <div class="col-lg-9 col-md-8">{{Info.address}}</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">Celular Trabajo</div>
+    <div class="col-lg-9 col-md-8">{{Info.workCellPhone}}</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">Email</div>
+    <div class="col-lg-9 col-md-8">{{Info.workEmail}}</div>
+</div>

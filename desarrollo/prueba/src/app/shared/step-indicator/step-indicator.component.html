@@ -1,0 +1,17 @@
+<div class="p-0 flex-grow-1 bd-highlight ">
+    <div class="steps-circle">
+        <ng-container *ngFor="let step of StepsList; let i = index">
+            <div  class="home text-center" id="step{{step}}">
+            <div class="mx-auto pt-1 mb-1"             
+            [ngClass]="{'circle-completed': step < ActualStep,
+            'circle-disabled text-black': step > ActualStep,
+            'circle-active': step === ActualStep}"
+            >{{step}}</div>            
+            <span class="">&nbsp;</span>             
+        </div>  
+        <div *ngIf="i < StepsList.length - 1" class="line" style="margin-top: -30px"></div>
+        </ng-container>
+
+    </div>
+
+</div>

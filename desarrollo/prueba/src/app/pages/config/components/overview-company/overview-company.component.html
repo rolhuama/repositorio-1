@@ -1,0 +1,34 @@
+<h5 class="card-title">Información de Cliente</h5>
+<p class="small fst-italic" ></p>
+
+<h5 class="card-title">Detalles</h5>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label ">RUC</div>
+    <div class="col-lg-9 col-md-8" [innerText]="Info.taxIdentificationNumber || ''" ></div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">Razón Social</div>
+    <div class="col-lg-9 col-md-8" >{{Info.legalName}}</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">Nombre Comercial</div>
+    <div class="col-lg-9 col-md-8">{{Info.commercialName}}</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">País</div>
+    <div class="col-lg-9 col-md-8" >{{Info.country}}</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">Dom. Fiscal</div>
+    <div class="col-lg-9 col-md-8">{{Info.fiscalAddress}}</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">Intercompany</div>
+    <div class="col-lg-9 col-md-8">{{Info.isInterCompany}}</div>
+</div>

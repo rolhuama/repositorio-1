@@ -1,0 +1,46 @@
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+
+  <ul class="sidebar-nav" id="sidebar-nav">
+
+    <li class="nav-item">
+      <a class="nav-link " routerLink="/dashboard">
+        <i class="bi bi-grid"></i>
+        <span>Dashboard</span>
+      </a>
+    </li><!-- End Dashboard Nav -->
+    
+    <ng-container *ngFor="let group of menuList.groups">
+      <li *ngIf="group.id !== 1 && group.id !== 8" class="nav-item">
+        <a class="nav-link collapsed" [attr.data-bs-target]="'#' + group.name + '-nav'" data-bs-toggle="collapse" href="#">
+          <i [ngClass]="group.icon"></i><span [innerText]="group.name"></span><i
+            class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul [id]="group.name +'-nav'" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li *ngFor="let link of filterLinksByGroup(group.id)">
+            <a [routerLink]="link.url">
+              <i [ngClass]="link.icon"></i><span>{{ link.name }}</span>
+            </a>
+          </li>    
+        </ul>
+      </li>
+    </ng-container>
+
+    <li class="nav-heading">Cuenta</li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" routerLink="/profile/information/{{user.personId}}">
+        <i class="bi bi-person"></i>
+        <span>Perfil</span>
+      </a>
+    </li><!-- End Profile Page Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" routerLink="/login">
+        <i class="bi bi-box-arrow-in-right"></i>
+        <span>Cerrar Sesión</span>
+      </a>
+    </li><!-- End Login Page Nav -->
+  </ul>
+
+</aside><!-- End Sidebar-->

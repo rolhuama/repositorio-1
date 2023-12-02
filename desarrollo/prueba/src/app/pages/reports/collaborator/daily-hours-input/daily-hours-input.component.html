@@ -1,0 +1,115 @@
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1 [innerText]="PageName"></h1>
+    <nav>
+      <app-breadcrumb [Pages]="Pages"></app-breadcrumb>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title" [innerText]="PageName"></h5>
+
+            <form [formGroup]="requestForm" (ngSubmit)="OnSubmit()">
+              <div class="row mb-3">
+
+
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label">Cliente</label>
+                  <div class="col-sm-8">
+                    <select id="companyId" class="form-select" aria-label="Lista de Clientes"
+                      formControlName="companyId"
+                      [ngClass]="helper.hasErrorControl('companyId',this.requestForm) ?'is-invalid' : ''">
+                      <option value="-1" selected>--Seleccionar--</option>
+                      <option value="{{item.id}}" *ngFor="let item of companyList" [innerText]="item.legalName">
+                      </option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label for="year" class="col-sm-2 col-form-label">Año</label>
+                  <div class="col-sm-3">
+                    <input id="year" type="number" min="2023" step="1" class="form-control" formControlName="year"
+                      [ngClass]="helper.hasErrorControl('year',this.requestForm) ?'is-invalid' : ''" required>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="month" class="col-sm-2 col-form-label">Mes</label>
+                  <div class="col-sm-3">
+                    <select id="month" class="form-select" aria-label="Lista de Meses" formControlName="month"
+                      [ngClass]="helper.hasErrorControl('month',this.requestForm) ?'is-invalid' : ''" required>
+                      <option value="-1" selected>--Seleccionar--</option>
+                      <option [value]="item.id" *ngFor="let item of monthList" [innerText]="item.name">
+                      </option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row mb-3 d-flex justify-content-center">
+                  <div class="col-sm-3 text-center">
+                    <button type="submit" class="btn btn-outline-primary"><i class="bi bi-search"></i>&nbsp;Consultar
+                      datos</button>
+                  </div>
+                  <div class="col-sm-3 text-center">
+                    <button type="button" class="btn btn-outline-success" (click)="ExportToExcel()"><i class="bi bi-file-earmark-excel"></i>&nbsp;Exportar
+                      datos</button>
+                  </div>
+                </div>
+           
+              </div>
+            </form>
+
+
+            <div class="row mb-3">
+              <div class="col-sm-12">
+                <div class="table-responsive">
+                  <table id="myTable" class="table table-sm table-hover" aria-describedby="Lista de actividades Colaboradores">
+                    <thead>
+                      <tr>
+                        <th class="nowrap-col table-header">Periodo</th>
+                        <th class="nowrap-col table-header">Horas Tope</th>
+                        <th class="nowrap-col table-header">Cliente Raz. Soc.</th>
+                        <th class="nowrap-col table-header">Cliente Nom. Comercial</th>
+                        <th class="nowrap-col table-header">País</th>
+                        <th class="nowrap-col table-header">Área</th>
+                        <th class="nowrap-col table-header">Equipo</th>
+                        <th class="nowrap-col table-header">Tipo</th>
+                        <th class="nowrap-col table-header">Servicio/Proyecto</th>
+                        <th class="nowrap-col table-header">Ticket</th>
+                        <th class="nowrap-col table-header">Apellidos</th>
+                        <th class="nowrap-col table-header">Nombres</th>
+                        <th class="nowrap-col table-header">Actividad</th>
+                        <th class="nowrap-col table-header">Duración</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- <tr>
+                        <td>Row 1 Data 1</td>
+                        <td>Row 1 Data 2</td>
+                      </tr>
+                      <tr>
+                        <td>Row 2 Data 1</td>
+                        <td>Row 2 Data 2</td>
+                      </tr> -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+            </div>
+
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>

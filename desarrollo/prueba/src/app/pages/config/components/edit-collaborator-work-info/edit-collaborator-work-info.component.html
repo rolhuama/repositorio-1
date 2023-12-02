@@ -1,0 +1,42 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="row mb-3">
+        <div class="col-sm-12">
+            <div class="mb-3 row">
+                <label for="position" class="col-sm-2 col-form-label">Puesto:</label>
+                <div class="col-sm-6">
+                    <input id="position" type="text" class="form-control" formControlName="position" [ngClass]="helper.hasErrorControl('position',this.registerForm) ?'is-invalid' : ''"  required>
+                </div>
+              
+            </div>
+            <div class="mb-3 row">
+                <label for="workAreaId" class="col-sm-2 col-form-label">Área:</label>
+                <div class="col-sm-6">
+                    <select id="workAreaId" class="form-select" aria-label="Lista de Paises" formControlName="workAreaId" [ngClass]="helper.hasErrorControl('workAreaId',this.registerForm) ?'is-invalid' : ''" (change)="refreshTeamList($event)">
+                        <option value="-1" selected>--Seleccionar--</option>
+                        <option value="{{item.id}}" *ngFor="let item of WorkAreaList" [innerText]="item.name" ></option>                     
+                      </select>
+                </div>
+              
+            </div>
+            <div class="mb-3 row">
+                <label for="workAreaTeamId" class="col-sm-2 col-form-label">Equipo:</label>
+                <div class="col-sm-6">
+                    <select id="workAreaTeamId" class="form-select" aria-label="Lista de Paises" formControlName="workAreaTeamId" [ngClass]="helper.hasErrorControl('workAreaTeamId',this.registerForm) ?'is-invalid' : ''"  >
+                        <option value="-1" selected>--Seleccionar--</option>
+                        <option value="{{item.id}}" *ngFor="let item of WorkAreaTeamList" [innerText]="item.name" ></option>                     
+                      </select>
+                </div>
+              
+            </div>
+        </div>
+
+
+    </div>
+    
+
+    <div class="mb-3 row justify-content-center">
+          <div class="col-sm-6">
+                    <button type="submit" class="btn btn-outline-primary"><i class="bi bi-floppy"></i>&nbsp;Guardar Datos</button>
+                </div>
+    </div>
+</form><!-- End General Form Elements -->

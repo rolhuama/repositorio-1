@@ -1,0 +1,40 @@
+.activityType-col {
+    white-space: nowrap;
+    width: 12.5rem;
+}
+
+.serviceType-col {
+    white-space: nowrap;
+    width: 12.5rem;
+}
+
+.description-col {
+    width: 20rem;
+}
+
+.day-col {
+    white-space: nowrap;
+    width: 6.25rem;
+}
+
+.total-col {
+    white-space: nowrap;
+    width: 6.25rem;
+}
+
+.ticket-col{
+    width: 12.5rem;
+}
+
+@media (min-width: 1921px) {
+    .description-col {
+        width: 100%
+    }
+}
+
+::ng-deep .swal2-html-container{
+    --bs-text-opacity: 1;
+    text-align: left !important;
+    color: rgba(var(--bs-danger-rgb),var(--bs-text-opacity))!important
+
+}

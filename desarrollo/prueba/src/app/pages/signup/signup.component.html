@@ -1,0 +1,269 @@
+<main>
+    <div class="container">
+        <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-0">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div
+                        class="col-lg-8 col-md-12 d-flex flex-column align-items-center justify-content-center hero__title">
+
+                        <div class="card mb-3 ">
+
+                            <div class="card-body">
+                                <div class="row d-flex justify-content-center mt-3">
+                                    <div class="col-sm-3 p-0">
+                                        <div class="p-0 text-center">
+                                            <img src="assets/img/colabmanager-logo-circle-degraded.webp"
+                                                class="login-img" alt="logo app" width="64px" height="64px">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="pt-1 pb-2">
+                                    <h5 class="card-title text-center pb-0 fs-4">Bienvenid@</h5>
+                                    <p class="text-center small">Completa la siguiente informacion:</p>
+                                </div>
+                                <div class="row d-flex justify-content-center ">
+                                    <div class="col-sm-6">
+                                        <app-step-indicator [Steps]="3" [ActualStep]="activeTab"></app-step-indicator>
+                                    </div>
+                                </div>
+
+                                <form [formGroup]="RegisterForm" (ngSubmit)="onSubmit()" class="row g-3 needs-validation" novalidate>
+                                    <ul ngbNav #nav="ngbNav" [(activeId)]="activeTab" (navChange)="onNavChange($event)"
+                                        class="nav-tabs mb-3">
+                                        <li [ngbNavItem]="1">
+
+                                            <ng-template ngbNavContent>
+                                                <div class="row">
+                                                    <div class="col-sm-4">
+                                                        <div class="form-floating mb-3">
+                                                            <select class="form-select" id="DocumentTypes"
+                                                                aria-label="Tipos de Documento" formControlName="DocumentTypes" [ngClass]="hasErrorControl('DocumentTypes') ?'is-invalid' : ''" required>
+                                                                <option value="">--Seleccionar--</option>
+                                                                <option *ngFor="let item of Lists.documentTypes"
+                                                                    value="{{item.id}}">{{item.description}}</option>
+                                                            </select>
+                                                            <label for="DocumentTypes" class="form-label">Tipo
+                                                                Documento</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" name="DocumentNumber" class="form-control " [ngClass]="hasErrorControl('DocumentNumber') ?'is-invalid' : ''"
+                                                                id="DocumentNumber" placeholder="" formControlName="DocumentNumber"  required>
+                                                            <label for="DocumentNumber" class="form-label">Nro
+                                                                Documento</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="date" name="Birthday" class="form-control" [ngClass]="hasErrorControl('Birthday') ?'is-invalid' : ''"
+                                                                id="Birthday" placeholder="" formControlName="Birthday"  required>
+                                                            <label for="Birthday" class="form-label">Fecha
+                                                                Nacimiento</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" name="LastName1" class="form-control" [ngClass]="hasErrorControl('LastName1') ?'is-invalid' : ''"
+                                                                id="LastName1" placeholder="" formControlName="LastName1" required>
+                                                            <label for="LastName1" class="form-label">Apellido
+                                                                Paterno</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" name="LastName2" class="form-control" [ngClass]="hasErrorControl('LastName2') ?'is-invalid' : ''"
+                                                                id="LastName2" placeholder="" formControlName="LastName2"  required>
+                                                            <label for="LastName2" class="form-label">Apellido
+                                                                Materno</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" name="FirstName1" class="form-control" [ngClass]="hasErrorControl('FirstName1') ?'is-invalid' : ''"
+                                                                id="FirstName1" placeholder="" formControlName="FirstName1"  required>
+                                                            <label for="FirstName1" class="form-label">Primer
+                                                                Nombre</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" name="FirstName2" class="form-control" [ngClass]="hasErrorControl('FirstName2') ?'is-invalid' : ''" 
+                                                                id="FirstName2" placeholder="" formControlName="FirstName2" required>
+                                                            <label for="FirstName2" class="form-label">Segundo
+                                                                Nombre</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" name="Nationality" class="form-control" [ngClass]="hasErrorControl('Nationality') ?'is-invalid' : ''"
+                                                                id="Nationality" placeholder="" formControlName="Nationality" required>
+                                                            <label for="Nationality" class="form-label">Nacionalidad</label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-sm-4">
+                                                        <div class="form-floating mb-3">
+                                                            <select class="form-select" id="Gender"
+                                                                aria-label="Departamento" formControlName="Gender" [ngClass]="hasErrorControl('Gender') ?'is-invalid' : ''">
+                                                                <option value="">--Seleccionar--</option>
+                                                                <option value="M">Hombre</option>
+                                                                <option value="F">Mujer</option>
+                                                            </select>
+                                                            <label for="Gender" class="form-label">Sexo</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4 d-flex align-items-center ">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value=""
+                                                                id="HasChildren" formControlName="HasChildren">
+                                                            <label class="form-check-label" for="HasChildren">
+                                                                Tiene Hijos
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                  
+                                                </div>
+                                            </ng-template>
+                                        </li>
+                                        <li [ngbNavItem]="2">
+
+                                            <ng-template ngbNavContent>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" name="Address" class="form-control" [ngClass]="hasErrorControl('Address') ?'is-invalid' : ''"
+                                                                id="Address" placeholder="" formControlName="Address" required>
+                                                            <label for="Address" class="form-label">Dirección</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" name="ReferenceAddress" class="form-control" [ngClass]="hasErrorControl('ReferenceAddress') ?'is-invalid' : ''"
+                                                                id="ReferenceAddress" placeholder=""  formControlName="ReferenceAddress" required>
+                                                            <label for="ReferenceAddress" class="form-label">Dirección
+                                                                (Referencia)</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <div class="form-floating mb-3">
+                                                            <select class="form-select" id="Department"
+                                                                aria-label="Departamento" formControlName="Department" [ngClass]="hasErrorControl('Department') ?'is-invalid' : ''" (change)="GetProvinces($event)">
+                                                                <option value="">--Seleccionar--</option>
+                                                                <option *ngFor="let item of Lists.departments"
+                                                                    value="{{item.department}}">{{item.name}}</option>
+                                                            </select>
+                                                            <label for="Department"
+                                                                class="form-label">Department</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <div class="form-floating mb-3">
+                                                            <select class="form-select" id="Province"
+                                                                aria-label="Provincia" formControlName="Province"  [ngClass]="hasErrorControl('Province') ?'is-invalid' : ''" (change)="GetDistricts($event)">
+                                                                <option value="">--Seleccionar--</option>
+                                                                <option *ngFor="let item of ListProvince"
+                                                                    value="{{item.province}}">{{item.name}}</option>
+                                                            </select>
+                                                            <label for="Province" class="form-label">Provincia</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <div class="form-floating mb-3">
+                                                            <select class="form-select" id="District"
+                                                                aria-label="Distrito" formControlName="District" [ngClass]="hasErrorControl('District') ?'is-invalid' : ''">
+                                                                <option value="">--Seleccionar--</option>
+                                                                <option *ngFor="let item of ListDistrict"
+                                                                    value="{{item.district}}">{{item.name}}</option>
+                                                            </select>
+                                                            <label for="District" class="form-label">Distrito</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </ng-template>
+                                        </li>
+                                        <li [ngbNavItem]="3">
+                                            <ng-template ngbNavContent>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="email" name="PersonalEmail" class="form-control" [ngClass]="hasErrorControl('PersonalEmail') ?'is-invalid' : ''"
+                                                                id="PersonalEmail" placeholder="" formControlName="PersonalEmail" required>
+                                                            <label for="PersonalEmail" class="form-label">Correo
+                                                                Personal</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" name="PersonalCellPhone" class="form-control" [ngClass]="hasErrorControl('PersonalCellPhone') ?'is-invalid' : ''"
+                                                                id="PersonalCellPhone" placeholder="" formControlName="PersonalCellPhone" required>
+                                                            <label for="PersonalCellPhone" class="form-label">Celular
+                                                                Personal</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="email" name="WorkEmail" class="form-control" [ngClass]="hasErrorControl('WorkEmail') ?'is-invalid' : ''"
+                                                                id="WorkEmail" placeholder="" formControlName="WorkEmail" required>
+                                                            <label for="WorkEmail" class="form-label">Correo
+                                                                Entelgy</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" name="WorkCellPhone" class="form-control"
+                                                                id="WorkCellPhone" placeholder="" formControlName="WorkCellPhone">
+                                                            <label for="WorkCellPhone" class="form-label">Celular
+                                                                Entelgy</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </ng-template>
+                                        </li>
+                                    </ul>
+
+                                    <div [ngbNavOutlet]="nav" class="mt-2 mb-3"></div>
+
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <button *ngIf="activeTab>1" class="btn btn-outline-primary w-100"
+                                                type="button" (click)="Last()">
+                                                <i class="bi bi-arrow-left-circle"></i>&nbsp;Anterior</button>
+                                        </div>
+                                        <div class="col-6">
+                                            <button *ngIf="activeTab<3" class="btn btn-outline-primary w-100" type="button"
+                                                (click)="Next()">
+                                                <i class="bi bi-arrow-right-circle"></i>&nbsp;Siguiene</button>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+                                    <div class="col-12 d-flex justify-content-center">
+                                        <button class="btn btn-primary w-100 fs-3" type="submit">
+                                            <i class="bi bi-person-up "></i>&nbsp;Registrarse</button>
+
+                                    </div>
+
+                                </form>
+
+                            </div>
+                        </div>
+
+                        <div class="credits">
+
+                            Develop by <a href="https://www.entelgy.com/paises-entelgy/entelgy-en-peru">Entelgy Perú</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class='air air1'></div>
+            <div class='air air2'></div>
+            <div class='air air3'></div>
+            <div class='air air4'></div>
+        </section>
+
+    </div>
+</main><!-- End #main -->

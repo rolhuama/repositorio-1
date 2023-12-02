@@ -1,0 +1,71 @@
+.loader-container{
+    top: 0px;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: rgba(0, 0, 0, 0.50);
+    z-index: 2000;
+    backdrop-filter: blur(4px);
+}
+
+@keyframes ldio-xi20c6k0q1 {
+    0% { transform: translate(12px,80px) scale(0); }
+   25% { transform: translate(12px,80px) scale(0); }
+   50% { transform: translate(12px,80px) scale(1); }
+   75% { transform: translate(80px,80px) scale(1); }
+  100% { transform: translate(148px,80px) scale(1); }
+ }
+ @keyframes ldio-xi20c6k0q1-r {
+    0% { transform: translate(148px,80px) scale(1); }
+  100% { transform: translate(148px,80px) scale(0); }
+ }
+ @keyframes ldio-xi20c6k0q1-c {
+    0% { background: #001628 }
+   25% { background: #ff5001 }
+   50% { background: #5dc18e }
+   75% { background: #62acd9 }
+  100% { background: #001628 }
+ }
+ .ldio-xi20c6k0q1 div {
+   position: absolute;
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   transform: translate(80px,80px) scale(1);
+   background: #001628;
+   animation: ldio-xi20c6k0q1 1s infinite cubic-bezier(0,0.5,0.5,1);
+ }
+ .ldio-xi20c6k0q1 div:nth-child(1) {
+   background: #62acd9;
+   transform: translate(148px,80px) scale(1);
+   animation: ldio-xi20c6k0q1-r 0.25s infinite cubic-bezier(0,0.5,0.5,1), ldio-xi20c6k0q1-c 1s infinite step-start;
+ }.ldio-xi20c6k0q1 div:nth-child(2) {
+   animation-delay: -0.25s;
+   background: #001628;
+ }.ldio-xi20c6k0q1 div:nth-child(3) {
+   animation-delay: -0.5s;
+   background: #62acd9;
+ }.ldio-xi20c6k0q1 div:nth-child(4) {
+   animation-delay: -0.75s;
+   background: #5dc18e;
+ }.ldio-xi20c6k0q1 div:nth-child(5) {
+   animation-delay: -1s;
+   background: #ff5001;
+ }
+ .loadingio-spinner-ellipsis-43opxtzm0rj {
+   width: 200px;
+   height: 200px;
+   display: inline-block;
+   overflow: hidden;
+   background: none;
+ }
+ .ldio-xi20c6k0q1 {
+   width: 100%;
+   height: 100%;
+   position: relative;
+   transform: translateZ(0) scale(1);
+   backface-visibility: hidden;
+   transform-origin: 0 0; /* see note above */
+ }
+ .ldio-xi20c6k0q1 div { box-sizing: content-box; }

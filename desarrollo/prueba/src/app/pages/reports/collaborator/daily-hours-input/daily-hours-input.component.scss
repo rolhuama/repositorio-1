@@ -1,0 +1,23 @@
+@import '~datatables.net-bs5/css/dataTables.bootstrap5.min.css';
+// @import '~datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css';
+
+
+
+  /* Utiliza flexbox para alinear los elementos en línea */
+  ::ng-deep .dataTables_length label {
+    display: flex;
+    align-items: center;
+  }
+  
+//   /* Aplica estilo al <select> */
+  ::ng-deep .dataTables_length select {
+    max-width: 100px;
+  }
+
+  ::ng-deep .table tbody tr td {
+    white-space: nowrap;
+  } 
+
+  .table-header {
+    font-weight: bold;
+  }

@@ -1,0 +1,6 @@
+<ol class="breadcrumb">
+    <ng-container *ngFor="let page of Pages">
+        <li class="breadcrumb-item" [ngClass]="{'active':page.active}"><a [routerLink]="page.link ? page.link : '#'"
+                [innerText]="page.name"></a></li>
+    </ng-container>
+</ol>

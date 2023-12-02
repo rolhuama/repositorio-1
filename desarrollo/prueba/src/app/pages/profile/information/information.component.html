@@ -1,0 +1,76 @@
+<main id="main" class="main">
+
+  <div class="pagetitle">
+    <h1 [innerText]="PageName"></h1>
+    <nav>
+      <app-breadcrumb [Pages]="Pages"></app-breadcrumb>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <section class="section profile">
+    <div class="row">
+      <div class="col-xl-4">
+
+        <div class="card">
+          <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+            <img *ngIf="(information$ | async)?.user?.picture == null" src="assets/img/profile-img.webp" alt="Profile"
+              class="rounded-circle">
+            <img *ngIf="(information$ | async)?.user?.picture != null" [src]="(information$ | async)?.user?.picture" alt="Profile"
+              class="rounded-circle">
+            <h2 *ngIf="information$ | async as information">{{information.user.givenName}}</h2>
+            <h3 *ngIf="information$ | async as information">{{information.user.position}}</h3>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-xl-8">
+
+        <div class="card">
+          <div class="card-body pt-3">
+            <!-- Bordered Tabs -->
+            <ul class="nav nav-tabs nav-tabs-bordered">
+
+              <li class="nav-item">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">
+                  Descripción General</button>
+              </li>
+
+              <li class="nav-item">
+                <button class="nav-link " data-bs-toggle="tab" data-bs-target="#profile-edit">Edita Perfil</button>
+              </li>
+
+              <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Cambio de Contraseña</button>
+              </li>
+
+            </ul>
+            <div class="tab-content pt-2">
+
+              <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                <app-overview-profile *ngIf="information$ | async as information" [Info]="information" ></app-overview-profile>
+
+              </div>
+
+              <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+
+                <app-edit-profile *ngIf="information$ | async as information" [Info]="information" ></app-edit-profile>
+
+              </div>
+
+              <div class="tab-pane fade pt-3" id="profile-change-password">
+                <app-change-password-profile></app-change-password-profile>
+
+              </div>
+
+            </div><!-- End Bordered Tabs -->
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main><!-- End #main -->
